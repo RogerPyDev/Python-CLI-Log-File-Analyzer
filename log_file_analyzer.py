@@ -24,3 +24,20 @@ def analyze_log(file_path, pattern):
         print(f"\nError: El archivo '{file_path}' no se encontro.")
     except Exception as e:
         print(f"\nOcurrió un error: {e}")
+
+
+def main():
+
+    parser = argparse.ArgumentParser(
+        description="Log File Analyzer - Filtra y analiza archivos de log con patrones específicos."
+    )
+    parser.add_argument(
+        "file",
+        type=str,
+        help="Ruta del archivo de log a analizar."
+        )
+    parser.add_argument(
+        "pattern",
+        type=str,
+        help="Expresión regular para filtrar líneas."
+        )
