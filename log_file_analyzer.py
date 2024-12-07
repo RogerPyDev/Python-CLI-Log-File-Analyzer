@@ -41,3 +41,11 @@ def main():
         type=str,
         help="Expresión regular para filtrar líneas."
         )
+
+    args = parser.parse_args()
+
+    analyze_log(args.file, args.pattern)
+
+
+if __name__ == "__main__":
+    main()
