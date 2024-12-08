@@ -1,19 +1,27 @@
-import argparse
-import re
+import argparse  # Para gestionar argumentos en la línea de comandos
+import re  # Para trabajar con expresiones regulares
 
 
 def analyze_log(file_path, pattern):
+    
+    """
+    Analiza un archivo de log y filtra líneas que coincidan
+    con el patrón dado.add()
+    
+    Args:
+    file_path (str): Ruta del archivo de log a analizar.
+    pattern (str): Expresión regular para filtrar líneas.
+    """
 
     try:
-        with open(file_path, 'r') as log_file:
+        with open(file_path, 'r') as log_file:  # Abre el archivo en modo lectura
             print(f"\nAnalizando el archivo: {file_path}")
-            regex = re.compile(pattern)
-            matches = 0
+            regex = re.compile(pattern)  # Cmpila la expresión regular
+            matches = 0  # Contador de líneas coincidentes
 
             for line_number, line in enumerate(log_file, start=1):
                 if regex.search(line):
-                    matches += 1
-                    print(f"Linea {line_number}: {line.strip()}")
+                    print(f"Línea {line_number}: {line.strip()}")
                     matches += 1
 
             if matches == 0:
