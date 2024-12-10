@@ -3,11 +3,11 @@ import re  # Para trabajar con expresiones regulares
 
 
 def analyze_log(file_path, pattern):
-    
+
     """
     Analiza un archivo de log y filtra líneas que coincidan
     con el patrón dado.add()
-    
+
     Args:
     file_path (str): Ruta del archivo de log a analizar.
     pattern (str): Expresión regular para filtrar líneas.
@@ -20,7 +20,7 @@ def analyze_log(file_path, pattern):
             matches = 0  # Contador de líneas coincidentes
 
             for line_number, line in enumerate(log_file, start=1):
-                if regex.search(line):
+                if regex.search(line):  # verifica si la línea coincide con el patrón
                     print(f"Línea {line_number}: {line.strip()}")
                     matches += 1
 
@@ -36,6 +36,10 @@ def analyze_log(file_path, pattern):
 
 def main():
 
+    """
+    Punto de entrada principal para la aplicación.
+    """
+
     parser = argparse.ArgumentParser(
         description="Log File Analyzer - Filtra y analiza archivos de log con patrones específicos."
     )
@@ -50,8 +54,9 @@ def main():
         help="Expresión regular para filtrar líneas."
         )
 
-    args = parser.parse_args()
+    args = parser.parse_args()  # Procesa los argumentos de la línea de comandos
 
+    # Llama a la función de análisis con los argumentos proporcionados
     analyze_log(args.file, args.pattern)
 
 
